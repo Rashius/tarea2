@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../../views/css/main.css">
+	<title>B-Local: Mi casa es tu casa</title>
+</head>
+<body>
+	<header>
+		<section id="sctHeader">
+			<h2>B-Local: Mi casa es tu casa, Bienvenido!</h2>
+		</section>
+	</header>
+	<section id="sctMain">
+		<h3><a href="/">Inicio</a></h3>
+		<h3><a href="/agrega-local">¿Quieres ser anfitrion? Pasanos la dirección!!</a></h3>
+		<h3><a href="/cities/{{viewbag.item.city}}">{{viewbag.item.city}}</a></h3>
+		<div class="dvListLocal">
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Titulo: </span>
+				<span class="spnValor">{{viewbag.item.title}}</span>
+			</div>
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Descripción: </span>
+				<span class="spnValor">{{viewbag.item.description}}</span>
+			</div>
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Dirección: </span>
+				<span class="spnValor">{{viewbag.item.address}}</span>
+			</div>
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Ciudad: </span>
+				<span class="spnValor">{{viewbag.item.city}}</span>
+			</div>
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Acepta Mascotas: </span>
+				<span class="spnValor">{{viewbag.item.mascotas}}</span>
+			</div>
+			<div class="dvInformaLocal">
+				<span class="spnLlave">Tiene Alberca: </span>
+				<span class="spnValor">{{viewbag.item.alberca}}</span>
+			</div>
+		</div>
+		<hr>
+		<form method="POST" action="/actualizar-local/{{viewbag.item.city}}/{{viewbag.item.id}}">
+			<div class="dvPregunta">
+				<span>Titulo:</span>
+				<input type="text" name="title" value="{{viewbag.item.title}}">
+			</div>
+			<div class="dvPregunta">
+				<span>Descripción:</span>
+				<textarea name="description">{{viewbag.item.description}}</textarea>
+			</div>
+			<div class="dvPregunta">
+				<span>Tu dirección es:</span>
+				<textarea name="address">{{viewbag.item.address}}</textarea>
+			</div>
+			<div class="dvPregunta">
+				<span>Ciudad:</span>
+				<input type="text" name="" value="{{viewbag.item.city}}" disabled>
+			</div>
+			<div class="dvPregunta">
+				<span>¿Tienes alberca?</span>
+				<input type="radio" name="alberca" value="false" id="chkNo" checked>
+				<label for="chkNo">No</label>
+				<input type="radio" name="alberca" value="true" id="chkSi">
+				<label for="chkSi">Si</label>
+			</div>
+			<div class="dvPregunta">
+				<span>¿Aceptas mascotas?</span>
+				<input type="radio" name="mascotas" value="false" id="chkNoPets" checked>
+				<label for="chkNoPets">No</label>
+				<input type="radio" name="mascotas" value="true" id="chkSiPets">
+				<label for="chkSiPets">Si</label>
+			</div>
+			<div class="dvPreguntas">
+				<button type="submit">Actualizar</button>
+			</div>
+		</form>
+		<form action="/remover-local/{{viewbag.item.city}}/{{viewbag.item.id}}" method="POST">
+			<button type="submit">Remover/Eliminar</button>			
+		</form>
+	</section>
+	<!-- <footer>
+		<span><a href="#">Contactanos</a></span>
+		<span><a href="#">Acerca de Nosotros</a></span>
+		<span><a href="#">Viaja Seguro</a></span>
+		<span><a href="#">Destinos</a></span>
+	</footer> -->
+</body>
+</html>

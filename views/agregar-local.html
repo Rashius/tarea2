@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>B-Local: Mi casa es tu casa</title>
+	<link rel="stylesheet" href="views/css/main.css">
+</head>
+<body>
+	<header>
+		<section id="sctHeader">
+			<h2>B-Local: Mi casa es tu casa</h2>
+		</section>
+	</header>
+	<section id="sctMain">
+	<h3><a href="/">Inicio</a></h3>
+		<form method="POST" action="/agregar-local">
+			<div class="dvPregunta">
+				<span>Titulo:</span>
+				<input type="text" name="title">
+			</div>
+			<div class="dvPregunta">
+				<span>Descripción:</span>
+				<textarea name="description"></textarea>
+			</div>
+			<div class="dvPregunta">
+				<span>Tu dirección es:</span>
+				<textarea name="address"></textarea>
+			</div>
+			<div class="dvPregunta">
+				<span>Ciudad:</span>
+				<select name="city">
+					{% for i in viewbag.cities %}
+					<option value="{{i}}">{{i}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="dvPregunta">
+				<span>¿Tienes alberca?</span>
+				<input type="radio" name="alberca" value="false" id="chkNo" checked>
+				<label for="chkNo">No</label>
+				<input type="radio" name="alberca" value="true" id="chkSi">
+				<label for="chkSi">Si</label>
+			</div>
+			<div class="dvPregunta">
+				<span>¿Aceptas mascotas?</span>
+				<input type="radio" name="mascotas" value="false" id="chkNoPets" checked>
+				<label for="chkNoPets">No</label>
+				<input type="radio" name="mascotas" value="true" id="chkSiPets">
+				<label for="chkSiPets">Si</label>
+			</div>
+			<div class="dvPreguntas">
+				<button type="submit">Agregar</button>
+			</div>
+		</form>
+	</section>
+	<footer>
+		<span><a href="#">Contactanos</a></span>
+		<span><a href="#">Acerca de Nosotros</a></span>
+		<span><a href="#">Viaja Seguro</a></span>
+		<span><a href="#">Destinos</a></span>
+	</footer>
+</body>
+</html>

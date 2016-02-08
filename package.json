@@ -1,0 +1,11 @@
+{
+  "name": "tarea2",
+  "version": "1.0.0",
+  "description": "Tarea correspondiente a la segunda clase de Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francisco Valencia Gil @rashius",
+  "license": "ISC"
+}

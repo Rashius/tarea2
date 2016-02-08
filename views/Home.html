@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="views/css/main.css">
+	<title>B-Local: Mi casa es tu casa</title>
+</head>
+<body>
+	<header>
+		<section id="sctHeader">
+			<h2>B-Local: Mi casa es tu casa, Bienvenido!</h2>
+		</section>
+	</header>
+	<section id="sctMain">
+		<h3>¿Quieres ser anfitrion? Pasanos la dirección <a href="/agrega-local">aqui!!</a></h3>
+		<h2>B-Local en:</h2>
+		<!-- <form method="POST" action="/ciudad"> -->
+			<ul>			
+			{% for item in viewbag.cities %}
+				<li><a href="/cities/{{item}}">{{item}}</a></li>
+			{% endfor %}
+			</ul>
+		<!-- </form> -->
+	</section>
+	<footer>
+		<span><a href="#">Contactanos</a></span>
+		<span><a href="#">Acerca de Nosotros</a></span>
+		<span><a href="#">Viaja Seguro</a></span>
+		<span><a href="#">Destinos</a></span>
+	</footer>
+</body>
+</html>
